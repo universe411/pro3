@@ -1,0 +1,24 @@
+<!doctype html>
+<title>{% block title %}Welcome to Chatroom{% endblock %}</title>
+<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="page">
+    {% if g.user %}
+        <a style="margin-left:3px" href="{{ url_for('logout') }}"> Sign Out [{{ g.user.username }}]</a>
+    {% else %}
+        <span>
+    {% endif %}
+
+    {% with flashes = get_flashed_messages() %}
+    {% if flashes %}
+      <ul class="flashes">
+      {% for message in flashes %}
+        <li>{{ message }}
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+    <div class="body">
+        {% block body %}{% endblock %}
+    </div>
+</div>

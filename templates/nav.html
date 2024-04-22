@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}Navigation{% endblock %}
+{% block body %}
+	{% if error %}<div class="error"><strong>Error:</strong> {{ error }}</div>{% endif %}
+	{% if chatrooms %}
+		<h2>Available Chatrooms</h2>
+		{% for chatroom in chatrooms %}
+			<h3 style="display: inline; margin-right: 20px; padding: 2px">
+				<a href="{{url_for('joinroom', roomname=chatroom.name)}}">{{ chatroom.name }}</a>
+			</h3>
+			{% if chatroom.creater == currUser %}
+				<h4 id="room{{chatroom.name}}" style="display: inline; border: 1px solid black; padding: 1px 4px; border-radius: 5px">
+					<script>
+						var room = '{{ chatroom.name }}';
+						addDeleteButton(room);
+					</script>
+				</h4>
+			{% endif %}
+			<br>
+			<br>
+		{% endfor %}
+	{% else %}
+		<h2>There is no chatroom now</h2>
+	{% endif %}
+	<br>
+	<hr>
+	<h2>Create new chatroom</h2>
+	<form action="" method="post">
+		<dl>
+			<dt>Roomname:
+			<dd><input type="text" id="roomname" name="roomname" size="30" value="">
+		</dl>
+		<div class="actions"><input type="submit" value="Create" onclick="create_chatroom()"></div>
+	</form>
+{% endblock %}

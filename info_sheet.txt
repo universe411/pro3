@@ -1,0 +1,59 @@
+========================================
+CS1520 Assignment Information Sheet
+----------------------------------------
+
+You must submit an information sheet with every assignment. Also be sure
+to submit all materials following the procedures described on the
+submission procedures page.
+
+Name:  Hao Wang
+
+Lecture section:  Mon/Wed 15：00
+
+Recitation day and time:  Fri 15：00
+
+Assignment #:  3
+
+Program due date:  Apr 3
+
+Handed in date:  Apr 2
+
+Source code file name(s):
+chat.py
+model.py
+templates
+static
+
+
+
+
+
+
+
+Other file name(s) (if relevant):
+
+
+
+
+
+
+
+Does your project run without error?:
+yes
+If not, what is/are the error(s) and which parts of your program run
+correctly?:
+
+
+
+
+
+
+
+Additional comments to the grader:
+
+
+
+
+
+
+

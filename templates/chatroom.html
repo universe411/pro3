@@ -1,0 +1,30 @@
+<link rel="shortcut icon" href="about:blank">
+{% extends "layout.html" %}
+{% block title %}Chatroom{% endblock %}
+{% block body %}
+	<script>
+		window.addEventListener("load", setupchatroom, true);
+	</script>
+	<div id="messagediv">
+		<h3 style="text-align: center">{{ roomname }}</h3>
+		{% for message in messages %}
+			<hr style="background-color: #645252">
+			<h4 style="text-decoration: underline; display: inline">{{ message.author }}</h4>
+			<span style="width: 20px">
+			<p style="display: inline;">Published: {{ message.pub_date }}</p>
+			<p style="margin: 5px 0px">{{ message.text }}</p>
+
+		{% else %}
+			<h4 id="nomessage">There's no message so far.</h4>
+		{% endfor %}
+	</div>
+	<br><hr style="height: 2px; border: none; background-color: black"><br>
+
+	<form class="newmsg">
+		<input type="text" id="newMessage" style="width: 80%">
+		<input type="submit" onclick="new_message()" value="Send">
+	</form>
+
+	<br><br>
+	<a href="{{ url_for('navigation') }}">Leave Room</a>
+{% endblock %}

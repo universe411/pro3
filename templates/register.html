@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}Log In{% endblock %}
+{% block body %}
+	{% if error %}<div class="error"><strong>Error:</strong> {{ error }}</div>{% endif %}
+	<h3>Create New Account</h3>
+
+	<form action="" method="post">
+		<dl>
+			<dt>Username:
+			<dd><input type="text" id="new_username" name="username" size="30" value="">
+			<dt>Password:
+			<dd><input type="password" id="new_pw" name="password" size="30" >
+			<dt>Password <small>(repeat)</small>:
+			<dd><input type="password" id="new_pw_2" name="password2" size="30">
+		</dl>
+		<div class="actions"><input type="submit" value="Sign Up" onclick="register_submit()"></div>
+	</form>
+	<br>
+	<a href="{{ url_for('default') }}">Go Back to Main Page</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}Log In{% endblock %}
+{% block body %}
+	<h2>Sign In</h2>
+	<!--div class="error" id="loginError"></div-->
+	<form action="" method="post">
+		<dl>
+			<dt>Username:
+			<dd><input id="login_username" type="text" name="username" size="30">
+			<dt>Password:
+			<dd><input id="login_password" type="password" name="password" size="30">
+		</dl>
+	<div class="actions"><input type="submit" onclick="signin()" value="Sign In"></div>
+	</form>
+	<br>
+	<span><strong>Doesn't have an account?</strong></span>
+	<a href="{{ url_for('register') }}">Sign Up for An Account</a>
+{% endblock %}
