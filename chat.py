@@ -5,9 +5,9 @@ from hashlib import md5
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
 from flask import Flask, request, session, url_for, redirect, render_template, abort, g, flash
-from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug import check_password_hash, generate_password_hash
 
-from model import db, User, Chatroom, Message
+from models import db, User, Chatroom, Message
 app = Flask(__name__)
 
 DEBUG = True
@@ -78,7 +78,7 @@ def register_submit():
 	elif get_user_username(request.form['username']) is not None:
 		return 'The username is already taken'
 	else:
-		db.session.add(User(request.form['username'], generate_password_hash(request.form['password'])))
+		db.session.add(User(request.form['username'], generate_password_hash(request.form['password'], method='pbkdf2')))
 		db.session.commit()
 		#flash('You successfully registered a new account with username: ' + request.form['username'])\
 		return 'ok'
